@@ -14,7 +14,7 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         getSupportActionBar().hide();
         Handler handler = new Handler();
-        Intent intent = new Intent(this,DashBoardActivity.class);
+        Intent intent = new Intent(this,DashboardActivity.class);
         startActivity(intent);
         handler.postDelayed((() -> {
         }),5000);
