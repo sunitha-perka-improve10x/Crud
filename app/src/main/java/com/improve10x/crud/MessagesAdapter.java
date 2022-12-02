@@ -8,11 +8,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MessagesAdapter extends RecyclerView.Adapter<MessagesViewHolder> {
-    public ArrayList<Messages> messagesList;
-    public  void setData (ArrayList<Messages> messagesArrayList) {
+    public List<Messages> messagesList;
+    public  void setData (List<Messages> messagesArrayList) {
         messagesList = messagesArrayList;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -26,9 +28,9 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MessagesViewHolder holder, int position) {
         Messages messages = messagesList.get(position);
-        holder.name.setText(messages.name);
-        holder.messages.setText(messages.message);
-        holder.phoneNumber.setText(messages.phoneNumber);
+        holder.nameTxt.setText(messages.name);
+        holder.messagesTxt.setText(messages.message);
+        holder.phoneNumberTxt.setText(messages.phoneNumber);
     }
 
     @Override
