@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -26,10 +28,24 @@ public class MessagesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_messages);
         getSupportActionBar().setTitle("Messages");
+        handleAddBtn();
         setData();
         setupMessagesListRv();
+
+    }
+
+    private void handleAddBtn() {
+        Button addBtn = findViewById(R.id.add_btn);
+        addBtn.setOnClickListener(view -> {
+            Intent intent = new Intent(this,AddMessagesActivity.class);
+            startActivity(intent);
+        });
+    }
+
+    @Override
+    protected  void  onResume() {
+        super.onResume();
         fetchMessages();
-        
     }
 
     private void fetchMessages() {
