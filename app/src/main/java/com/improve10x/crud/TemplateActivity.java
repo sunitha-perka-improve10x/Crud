@@ -5,8 +5,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class TemplateActivity extends AppCompatActivity {
     public ArrayList<Template> templates;
@@ -20,8 +26,29 @@ public class TemplateActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Template");
         setData();
         setupTemplateRv();
+        fetchTemplate();
         
 
+    }
+
+    private void fetchTemplate() {
+        TemplateApi templateApi = new TemplateApi();
+        TemplateService templateService = templateApi.createTemplateService();
+        Call<List<Template>> call = templateService.fetchTemplate();
+        call.enqueue(new Callback<List<Template>>() {
+            @Override
+            public void onResponse(Call<List<Template>> call, Response<List<Template>> response) {
+                List<Template> templates = response.body();
+                templatesAdapter.setData(templates);
+
+            }
+
+            @Override
+            public void onFailure(Call<List<Template>> call, Throwable t) {
+                Toast.makeText(TemplateActivity.this, "Fail", Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 
     private void setupTemplateRv() {
