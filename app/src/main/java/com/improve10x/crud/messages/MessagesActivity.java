@@ -1,4 +1,4 @@
-package com.improve10x.crud;
+package com.improve10x.crud.messages;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -6,9 +6,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.improve10x.crud.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,7 +58,7 @@ public class MessagesActivity extends AppCompatActivity {
     private void handleAddBtn() {
         Button addBtn = findViewById(R.id.add_btn);
         addBtn.setOnClickListener(view -> {
-            Intent intent = new Intent(this,AddMessagesActivity.class);
+            Intent intent = new Intent(this, AddMessagesActivity.class);
             startActivity(intent);
         });
     }

@@ -12,7 +12,7 @@
         android:id="@+id/image_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
+        android:adjustViewBounds="false"
         android:src="@drawable/ic_launcher_background" />
 
     <TextView
@@ -23,5 +23,20 @@
         android:gravity="center"
         android:text="Messages"
         android:textColor="#1B1212"
+        android:textSize="16sp" />
+
+    <ImageButton
+        android:id="@+id/template_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="false"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Templates"
+        android:textColor="#1E1A1A"
         android:textSize="16sp" />
 </LinearLayout>

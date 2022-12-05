@@ -16,10 +16,13 @@
         android:theme="@style/Theme.Crud"
         tools:targetApi="31">
         <activity
-            android:name=".AddMessagesActivity"
+            android:name=".TemplateActivity"
             android:exported="false" />
         <activity
-            android:name=".MessagesActivity"
+            android:name=".messages.AddMessagesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".messages.MessagesActivity"
             android:exported="false" />
         <activity
             android:name=".DashboardActivity"
@@ -34,7 +37,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashActivity$MainActivity"
             android:exported="true" />
     </application>
 

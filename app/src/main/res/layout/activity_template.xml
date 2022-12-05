@@ -5,16 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".messages.MessagesActivity">
+    tools:context=".TemplateActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/messages_rv"
+        android:id="@+id/message_rv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1" />
 
     <Button
-        android:id="@+id/add_btn"
+        android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add"
