@@ -11,31 +11,31 @@ import com.improve10x.crud.R;
 
 import java.util.List;
 
-public class MessagesAdapter extends RecyclerView.Adapter<MessagesViewHolder> {
-    public List<Messages> messagesList;
+public class MessagesAdapter extends RecyclerView.Adapter<MessageViewHolder> {
+    public List<Message> messagesList;
     public OnItemActionListener onItemActionListener;
 
     public void setOnItemActionListener(OnItemActionListener listener){
         onItemActionListener = listener;
     }
-    public  void setData (List<Messages> messagesArrayList) {
-        messagesList = messagesArrayList;
+    public  void setData (List<Message> messageArrayList) {
+        messagesList = messageArrayList;
         notifyDataSetChanged();
     }
 
     @NonNull
     @Override
-    public MessagesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MessageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.messages_item,parent,false);
-        MessagesViewHolder messagesViewHolder = new MessagesViewHolder(view);
+        MessageViewHolder messagesViewHolder = new MessageViewHolder(view);
         return messagesViewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MessagesViewHolder holder, int position) {
-        Messages messages = messagesList.get(position);
+    public void onBindViewHolder(@NonNull MessageViewHolder holder, int position) {
+        Message messages = messagesList.get(position);
         holder.nameTxt.setText(messages.name);
-        holder.messagesTxt.setText(messages.message);
+        holder.messagesTxt.setText(messages.messageText);
         holder.phoneNumberTxt.setText(messages.phoneNumber);
         holder.deleteBtn.setOnClickListener(view -> {
             onItemActionListener.onItemDelete(messages);

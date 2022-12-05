@@ -13,7 +13,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AddMessagesActivity extends AppCompatActivity {
+public class AddMessageActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,30 +28,29 @@ public class AddMessagesActivity extends AppCompatActivity {
             String phoneNumber = phoneNumberTxt.getText().toString();
             EditText messageTxt = findViewById(R.id.message_txt);
             String message = messageTxt.getText().toString();
-            createMessages(name, phoneNumber, message);
+            createMessage(name, phoneNumber, message);
         });
 
     }
 
-    private void createMessages(String name, String phoneNumber, String message) {
-        Messages messagesList = new Messages();
+    private void createMessage(String name, String phoneNumber, String message) {
+        Message messagesList = new Message();
         messagesList.name = name;
         messagesList.phoneNumber = phoneNumber;
-        messagesList.message = message;
-
+        messagesList.messageText = message;
         MessagesApi messagesApi = new MessagesApi();
         MessagesService service = messagesApi.createMessagesService();
-        Call<Messages> call = service.createMessages(messagesList);
-        call.enqueue(new Callback<Messages>() {
+        Call<Message> call = service.createMessages(messagesList);
+        call.enqueue(new Callback<Message>() {
             @Override
-            public void onResponse(Call<Messages> call, Response<Messages> response) {
-                Toast.makeText(AddMessagesActivity.this, "Successfully Added Message", Toast.LENGTH_SHORT).show();
+            public void onResponse(Call<Message> call, Response<Message> response) {
+                Toast.makeText(AddMessageActivity.this, "Successfully Added Message", Toast.LENGTH_SHORT).show();
                 finish();
             }
 
             @Override
-            public void onFailure(Call<Messages> call, Throwable t) {
-                Toast.makeText(AddMessagesActivity.this, "Failure", Toast.LENGTH_SHORT).show();
+            public void onFailure(Call<Message> call, Throwable t) {
+                Toast.makeText(AddMessageActivity.this, "Failure", Toast.LENGTH_SHORT).show();
 
             }
         });

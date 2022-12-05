@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
 
-import com.improve10x.crud.messages.MessagesActivity;
+import com.improve10x.crud.messages.MessageActivity;
 
 public class DashboardActivity extends AppCompatActivity {
 
@@ -14,10 +14,10 @@ public class DashboardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-        getSupportActionBar().setTitle("Dash Board");
+        getSupportActionBar().setTitle("Dashboard");
         ImageButton imageBtn = findViewById(R.id.image_btn);
         imageBtn.setOnClickListener(view -> {
-            Intent intent = new Intent(this, MessagesActivity.class);
+            Intent intent = new Intent(this, MessageActivity.class);
             startActivity(intent);
         });
 
