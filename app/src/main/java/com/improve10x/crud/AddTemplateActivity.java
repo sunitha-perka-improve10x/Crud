@@ -17,7 +17,7 @@ public class AddTemplateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_edit_template);
-        getSupportActionBar().setTitle("Add Edit Template");
+        getSupportActionBar().setTitle("Add Template");
         handleAdd();
     }
 
@@ -33,7 +33,7 @@ public class AddTemplateActivity extends AppCompatActivity {
     private void createTemplate(String message) {
         Template template = new Template();
         template.messageText = message;
-        TemplateApi templateApi = new TemplateApi();
+        TemplatesApi templateApi = new TemplatesApi();
         TemplatesService templateService = templateApi.createTemplateService();
         Call<Template> call = templateService.createTemplate(template);
         call.enqueue(new Callback<Template>() {

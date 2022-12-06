@@ -40,7 +40,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SplashActivity$MainActivity"
+            android:name=".MainActivity"
             android:exported="true" />
     </application>
 

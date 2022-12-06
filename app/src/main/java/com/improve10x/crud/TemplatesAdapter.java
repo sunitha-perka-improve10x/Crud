@@ -17,8 +17,8 @@ public class TemplatesAdapter extends RecyclerView.Adapter<TemplateViewHolder> {
     }
 
         public List<Template> templates;
-    public  void setData(List<Template> templateArrayList) {
-        templates = templateArrayList;
+    public  void setData(List<Template> templateList) {
+        templates = templateList;
         notifyDataSetChanged();
     }
 
@@ -33,12 +33,18 @@ public class TemplatesAdapter extends RecyclerView.Adapter<TemplateViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull TemplateViewHolder holder, int position) {
         Template template = templates.get(position);
-        holder.message.setText(template.messageText);
-
+        holder.messageTextTxt.setText(template.messageText);
+        holder.deleteButton.setOnClickListener(view -> {
+            onItemActionListener.OnItemDelete(template);
+        });
+        holder.itemView.setOnClickListener(view -> {
+            onItemActionListener.OnItemClicked(template);
+        });
     }
 
     @Override
     public int getItemCount() {
+
         return templates.size();
     }
 }

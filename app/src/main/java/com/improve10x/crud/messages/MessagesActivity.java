@@ -96,21 +96,17 @@ public class MessagesActivity extends AppCompatActivity {
             @Override
             public void onItemClicked(Message messages) {
                 Toast.makeText(MessagesActivity.this, "OnItem Clicked", Toast.LENGTH_SHORT).show();
-
-
             }
 
             @Override
             public void onItemDelete(Message messages) {
                 Toast.makeText(MessagesActivity.this, "OnItem Delete", Toast.LENGTH_SHORT).show();
                 deleteMessage(messages);
-
             }
 
             @Override
             public void onItemEdit(Message messages) {
                 Toast.makeText(MessagesActivity.this, "OnItem Edit", Toast.LENGTH_SHORT).show();
-
             }
         });
         messagesRv.setAdapter(messagesAdapter);
@@ -118,7 +114,7 @@ public class MessagesActivity extends AppCompatActivity {
 
     private void setupData() {
         messages = new ArrayList<>();
-        Message message = new Message();
+       /* Message message = new Message();
         message.name = "Aravind";
         message.phoneNumber = "+919000540052";
         message.messageText = " Hi, Welcome to Improve 10X.";
@@ -128,7 +124,7 @@ public class MessagesActivity extends AppCompatActivity {
         messages1.name = "Ramesh";
         messages1.phoneNumber = "+91 7893256197";
         messages1.messageText = "Welcome to improve 10X";
-        messages.add(message);
+        messages.add(message);*/
 
     }
 }

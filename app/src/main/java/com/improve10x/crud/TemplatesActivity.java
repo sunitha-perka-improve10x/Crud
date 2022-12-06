@@ -29,7 +29,26 @@ public class TemplatesActivity extends AppCompatActivity {
         handleAdd();
         setupData();
         setupTemplatesRv();
-        fetchTemplates();
+
+    }
+
+    public void deleteTemplate(Template template) {
+        TemplatesApi templatesApi = new TemplatesApi();
+        TemplatesService templatesService = templatesApi.createTemplateService();
+        Call<Void> call = templatesService.deleteTemplate(template.id);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                Toast.makeText(TemplatesActivity.this, "Successfully Deleted Template", Toast.LENGTH_SHORT).show();
+                fetchTemplates();
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Toast.makeText(TemplatesActivity.this, "Fail Deleted Template", Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 
     private void handleAdd() {
@@ -47,9 +66,9 @@ public class TemplatesActivity extends AppCompatActivity {
     }
 
     private void fetchTemplates() {
-        TemplateApi templateApi = new TemplateApi();
+        TemplatesApi templateApi = new TemplatesApi();
         TemplatesService templateService = templateApi.createTemplateService();
-        Call<List<Template>> call = templateService.fetchTemplate();
+        Call<List<Template>> call = templateService.fetchTemplates();
         call.enqueue(new Callback<List<Template>>() {
             @Override
             public void onResponse(Call<List<Template>> call, Response<List<Template>> response) {
@@ -71,6 +90,23 @@ public class TemplatesActivity extends AppCompatActivity {
         templatesRv.setLayoutManager(new LinearLayoutManager(this));
         templatesAdapter = new TemplatesAdapter();
         templatesAdapter.setData(templates);
+        templatesAdapter.setOnItemActionListener(new OnItemActionListener() {
+            @Override
+            public void OnItemClicked(Template template) {
+                Toast.makeText(TemplatesActivity.this, "On Item Clicked", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void OnItemDelete(Template template) {
+                Toast.makeText(TemplatesActivity.this, "On Item Delete", Toast.LENGTH_SHORT).show();
+                deleteTemplate(template);
+            }
+
+            @Override
+            public void OnItemEdit(Template template) {
+                Toast.makeText(TemplatesActivity.this, "On Item Edit", Toast.LENGTH_SHORT).show();
+            }
+        });
         templatesRv.setAdapter(templatesAdapter);
     }
 
