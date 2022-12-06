@@ -8,6 +8,8 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 
 public class Template {
+    @SerializedName("_id")
+    public String id;
     @SerializedName("message")
     public String message;
 

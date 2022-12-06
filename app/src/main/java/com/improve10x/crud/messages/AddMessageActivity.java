@@ -20,6 +20,10 @@ public class AddMessageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_messages);
         getSupportActionBar().setTitle("Add Message");
+        handleAdd();
+    }
+
+    private void handleAdd() {
         Button addBtn = findViewById(R.id.add_btn);
         addBtn.setOnClickListener(view -> {
             EditText nameTxt = findViewById(R.id.name_txt);
@@ -30,7 +34,6 @@ public class AddMessageActivity extends AppCompatActivity {
             String message = messageTxt.getText().toString();
             createMessage(name, phoneNumber, message);
         });
-
     }
 
     private void createMessage(String name, String phoneNumber, String message) {
@@ -40,7 +43,7 @@ public class AddMessageActivity extends AppCompatActivity {
         messagesList.messageText = message;
         MessagesApi messagesApi = new MessagesApi();
         MessagesService service = messagesApi.createMessagesService();
-        Call<Message> call = service.createMessages(messagesList);
+        Call<Message> call = service.createMessage(messagesList);
         call.enqueue(new Callback<Message>() {
             @Override
             public void onResponse(Call<Message> call, Response<Message> response) {

@@ -11,7 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TemplateAdapter extends RecyclerView.Adapter<TemplateViewHolder> {
-    public List<Template> templates;
+    OnItemActionListener onItemActionListener;
+    public  void setOnItemActionListener(OnItemActionListener listener) {
+        onItemActionListener = listener;
+    }
+
+        public List<Template> templates;
     public  void setData(List<Template> templateArrayList) {
         templates = templateArrayList;
         notifyDataSetChanged();
@@ -29,6 +34,8 @@ public class TemplateAdapter extends RecyclerView.Adapter<TemplateViewHolder> {
     public void onBindViewHolder(@NonNull TemplateViewHolder holder, int position) {
         Template template = templates.get(position);
         holder.message.setText(template.message);
+
+
     }
 
     @Override

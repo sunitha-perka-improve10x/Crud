@@ -18,7 +18,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MessageActivity extends AppCompatActivity {
+public class MessagesActivity extends AppCompatActivity {
     public ArrayList<Message> messages;
     public RecyclerView messagesRv;
     public MessagesAdapter messagesAdapter;
@@ -30,26 +30,24 @@ public class MessageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_messages);
         getSupportActionBar().setTitle("Messages");
         handleAdd();
-        setData();
-        setupMessagesListRv();
-
+        setupData();
+        setupMessagesRv();
     }
-
 
     public void deleteMessage(Message messages) {
         MessagesApi messagesApi = new MessagesApi();
         MessagesService messagesService = messagesApi.createMessagesService();
-        Call<Void> call = messagesService.deleteMessages(messages.id);
+        Call<Void> call = messagesService.deleteMessage(messages.id);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                Toast.makeText(MessageActivity.this, "Successfully Deleted Messages", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MessagesActivity.this, "Successfully Deleted Messages", Toast.LENGTH_SHORT).show();
                 fetchMessages();
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(MessageActivity.this, "Failure Deleted Messages", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MessagesActivity.this, "Failure Deleted Messages", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -82,14 +80,14 @@ public class MessageActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Message>> call, Throwable t) {
-                Toast.makeText(MessageActivity.this, "Fail", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MessagesActivity.this, "Fail", Toast.LENGTH_SHORT).show();
 
             }
         });
 
     }
 
-    private void setupMessagesListRv() {
+    private void setupMessagesRv() {
         messagesRv = findViewById(R.id.messages_rv);
         messagesRv.setLayoutManager(new LinearLayoutManager(this));
         messagesAdapter = new MessagesAdapter();
@@ -97,28 +95,28 @@ public class MessageActivity extends AppCompatActivity {
         messagesAdapter.setOnItemActionListener(new OnItemActionListener() {
             @Override
             public void onItemClicked(Message messages) {
-                Toast.makeText(MessageActivity.this, "OnItem Clicked", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MessagesActivity.this, "OnItem Clicked", Toast.LENGTH_SHORT).show();
 
 
             }
 
             @Override
             public void onItemDelete(Message messages) {
-                Toast.makeText(MessageActivity.this, "OnItem Delete", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MessagesActivity.this, "OnItem Delete", Toast.LENGTH_SHORT).show();
                 deleteMessage(messages);
 
             }
 
             @Override
             public void onItemEdit(Message messages) {
-                Toast.makeText(MessageActivity.this, "OnItem Edit", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MessagesActivity.this, "OnItem Edit", Toast.LENGTH_SHORT).show();
 
             }
         });
         messagesRv.setAdapter(messagesAdapter);
     }
 
-    private void setData() {
+    private void setupData() {
         messages = new ArrayList<>();
         Message message = new Message();
         message.name = "Aravind";

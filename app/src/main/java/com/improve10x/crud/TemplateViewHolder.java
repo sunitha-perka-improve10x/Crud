@@ -12,5 +12,7 @@ public class TemplateViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
         message = itemView.findViewById(R.id.message_txt);
 
+
     }
 }
+
