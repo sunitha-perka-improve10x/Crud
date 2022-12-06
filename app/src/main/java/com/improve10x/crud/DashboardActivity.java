@@ -24,7 +24,7 @@ public class DashboardActivity extends AppCompatActivity {
 
         ImageButton templateBtn = findViewById(R.id.template_btn);
         templateBtn.setOnClickListener(view -> {
-            Intent intent = new Intent(this,TemplateActivity.class);
+            Intent intent = new Intent(this, TemplatesActivity.class);
             startActivity(intent);
         });
     }

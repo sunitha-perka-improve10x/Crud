@@ -16,10 +16,10 @@
         android:theme="@style/Theme.Crud"
         tools:targetApi="31">
         <activity
-            android:name=".AddEditTemplateActivity"
+            android:name=".AddTemplateActivity"
             android:exported="false" />
         <activity
-            android:name=".TemplateActivity"
+            android:name=".TemplatesActivity"
             android:exported="false" />
         <activity
             android:name=".messages.AddMessageActivity"

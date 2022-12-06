@@ -11,7 +11,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AddEditTemplateActivity extends AppCompatActivity {
+public class AddTemplateActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,20 +32,20 @@ public class AddEditTemplateActivity extends AppCompatActivity {
 
     private void createTemplate(String message) {
         Template template = new Template();
-        template.message = message;
+        template.messageText = message;
         TemplateApi templateApi = new TemplateApi();
-        TemplateService templateService = templateApi.createTemplateService();
+        TemplatesService templateService = templateApi.createTemplateService();
         Call<Template> call = templateService.createTemplate(template);
         call.enqueue(new Callback<Template>() {
             @Override
             public void onResponse(Call<Template> call, Response<Template> response) {
-                Toast.makeText(AddEditTemplateActivity.this, "SuccessfullyAdded message", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddTemplateActivity.this, "SuccessfullyAdded message", Toast.LENGTH_SHORT).show();
                     finish();
             }
 
             @Override
             public void onFailure(Call<Template> call, Throwable t) {
-                Toast.makeText(AddEditTemplateActivity.this, "Failuer", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddTemplateActivity.this, "Failuer", Toast.LENGTH_SHORT).show();
 
             }
         });

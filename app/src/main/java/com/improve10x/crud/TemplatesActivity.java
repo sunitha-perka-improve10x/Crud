@@ -16,10 +16,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class TemplateActivity extends AppCompatActivity {
+public class TemplatesActivity extends AppCompatActivity {
     public ArrayList<Template> templates;
-    public RecyclerView templateRv;
-    public  TemplateAdapter templatesAdapter;
+    public RecyclerView templatesRv;
+    public TemplatesAdapter templatesAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,17 +27,15 @@ public class TemplateActivity extends AppCompatActivity {
         setContentView(R.layout.activity_template);
         getSupportActionBar().setTitle("Template");
         handleAdd();
-        setData();
-        setupTemplateRv();
-        fetchTemplate();
-        
-
+        setupData();
+        setupTemplatesRv();
+        fetchTemplates();
     }
 
     private void handleAdd() {
         Button addBtn = findViewById(R.id.add_btn);
         addBtn.setOnClickListener(view -> {
-            Intent intent = new Intent(this,AddEditTemplateActivity.class);
+            Intent intent = new Intent(this, AddTemplateActivity.class);
             startActivity(intent);
         });
     }
@@ -45,14 +43,12 @@ public class TemplateActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        fetchTemplate();
+        fetchTemplates();
     }
 
-
-
-    private void fetchTemplate() {
+    private void fetchTemplates() {
         TemplateApi templateApi = new TemplateApi();
-        TemplateService templateService = templateApi.createTemplateService();
+        TemplatesService templateService = templateApi.createTemplateService();
         Call<List<Template>> call = templateService.fetchTemplate();
         call.enqueue(new Callback<List<Template>>() {
             @Override
@@ -64,25 +60,24 @@ public class TemplateActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Template>> call, Throwable t) {
-                Toast.makeText(TemplateActivity.this, "Fail", Toast.LENGTH_SHORT).show();
+                Toast.makeText(TemplatesActivity.this, "Fail", Toast.LENGTH_SHORT).show();
 
             }
         });
     }
 
-    private void setupTemplateRv() {
-        templateRv = findViewById(R.id.message_rv);
-        templateRv.setLayoutManager(new LinearLayoutManager(this));
-        templatesAdapter = new TemplateAdapter();
+    private void setupTemplatesRv() {
+        templatesRv = findViewById(R.id.message_rv);
+        templatesRv.setLayoutManager(new LinearLayoutManager(this));
+        templatesAdapter = new TemplatesAdapter();
         templatesAdapter.setData(templates);
-        templateRv.setAdapter(templatesAdapter);
+        templatesRv.setAdapter(templatesAdapter);
     }
 
-    private void setData() {
+    private void setupData() {
         templates = new ArrayList<>();
         Template template = new Template();
-        template.message = "Hi";
+        template.messageText = "Hi";
         templates.add(template);
-
     }
 }

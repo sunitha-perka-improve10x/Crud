@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TemplateAdapter extends RecyclerView.Adapter<TemplateViewHolder> {
+public class TemplatesAdapter extends RecyclerView.Adapter<TemplateViewHolder> {
     OnItemActionListener onItemActionListener;
     public  void setOnItemActionListener(OnItemActionListener listener) {
         onItemActionListener = listener;
@@ -33,8 +33,7 @@ public class TemplateAdapter extends RecyclerView.Adapter<TemplateViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull TemplateViewHolder holder, int position) {
         Template template = templates.get(position);
-        holder.message.setText(template.message);
-
+        holder.message.setText(template.messageText);
 
     }
 
