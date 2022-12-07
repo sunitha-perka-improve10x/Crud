@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.improve10x.crud.AddTemplateActivity;
 import com.improve10x.crud.R;
 
 import java.util.ArrayList;
@@ -20,9 +19,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class TemplatesActivity extends AppCompatActivity {
-    public ArrayList<Template> templates;
-    public RecyclerView templatesRv;
-    public TemplatesAdapter templatesAdapter;
+     private ArrayList<Template> templates;
+     private RecyclerView templatesRv;
+     private TemplatesAdapter templatesAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +31,9 @@ public class TemplatesActivity extends AppCompatActivity {
         handleAdd();
         setupData();
         setupTemplatesRv();
-
     }
 
-    public void deleteTemplate(Template template) {
+    private void deleteTemplate(Template template) {
         TemplatesApi templatesApi = new TemplatesApi();
         TemplatesService templatesService = templatesApi.createTemplateService();
         Call<Void> call = templatesService.deleteTemplate(template.id);

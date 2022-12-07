@@ -11,9 +11,9 @@ import com.improve10x.crud.R;
 
 public class TemplateViewHolder extends RecyclerView.ViewHolder {
 
-    public TextView messageTextTxt;
-    public ImageButton deleteButton;
-    public TemplateViewHolder(@NonNull View itemView) {
+     TextView messageTextTxt;
+     ImageButton deleteButton;
+     TemplateViewHolder(@NonNull View itemView) {
         super(itemView);
         messageTextTxt = itemView.findViewById(R.id.message_txt);
         deleteButton = itemView.findViewById(R.id.delete_btn);

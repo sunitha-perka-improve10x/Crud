@@ -9,7 +9,7 @@ import retrofit2.http.GET;
 
 public class Template {
     @SerializedName("_id")
-    public String id;
+     String id;
     @SerializedName("messageText")
-    public String messageText;
+     String messageText;
 }

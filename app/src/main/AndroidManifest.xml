@@ -19,7 +19,7 @@
             android:name=".SeriesItemsActivity"
             android:exported="false" />
         <activity
-            android:name=".AddTemplateActivity"
+            android:name=".templates.AddTemplateActivity"
             android:exported="false" />
         <activity
             android:name=".templates.TemplatesActivity"
