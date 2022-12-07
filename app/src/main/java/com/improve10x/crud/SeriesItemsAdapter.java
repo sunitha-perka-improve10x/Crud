@@ -10,10 +10,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SeriesItemsAdapter extends RecyclerView.Adapter<SeriesItemViewHolder> {
-    public ArrayList<SeriesItem> seriesItems;
-    public void setData(ArrayList<SeriesItem> seriesItemsList) {
+    public List<SeriesItem> seriesItems;
+    public void setData(List<SeriesItem> seriesItemsList) {
+
         seriesItems = seriesItemsList;
     }
     @NonNull

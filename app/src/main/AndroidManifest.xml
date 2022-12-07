@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Crud"
         tools:targetApi="31">
         <activity
+            android:name=".AddSeriesItemAcitivity"
+            android:exported="false" />
+        <activity
             android:name=".SeriesItemsActivity"
             android:exported="false" />
         <activity

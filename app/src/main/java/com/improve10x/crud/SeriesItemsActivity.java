@@ -5,11 +5,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.improve10x.crud.templates.Template;
 import com.improve10x.crud.templates.TemplatesAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SeriesItemsActivity extends AppCompatActivity {
     public ArrayList<SeriesItem> seriesItems;
@@ -23,6 +29,28 @@ public class SeriesItemsActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("SeriesItems");
         setupData();
         setupSeriesItemsRv();
+        fetchSeriesItems();
+
+    }
+
+    private void fetchSeriesItems() {
+        SeriesItemsApi seriesItemsApi = new SeriesItemsApi();
+        SeriesItemService seriesItemService = seriesItemsApi.createSeriesItemSeries();
+        Call <List<SeriesItem>> call = seriesItemService.fetchSeriesItems();
+        call.enqueue(new Callback<List<SeriesItem>>() {
+
+            @Override
+            public void onResponse(Call<List<SeriesItem>> call, Response<List<SeriesItem>> response) {
+                List<SeriesItem> seriesItems = response.body();
+                seriesItemsAdapter.setData(seriesItems);
+            }
+
+            @Override
+            public void onFailure(Call<List<SeriesItem>> call, Throwable t) {
+                Toast.makeText(SeriesItemsActivity.this, "Failed Load Data", Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
     }
 

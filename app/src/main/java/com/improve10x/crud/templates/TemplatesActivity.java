@@ -38,6 +38,7 @@ public class TemplatesActivity extends AppCompatActivity {
         TemplatesService templatesService = templatesApi.createTemplateService();
         Call<Void> call = templatesService.deleteTemplate(template.id);
         call.enqueue(new Callback<Void>() {
+
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 Toast.makeText(TemplatesActivity.this, "Successfully Deleted Template", Toast.LENGTH_SHORT).show();
@@ -71,11 +72,11 @@ public class TemplatesActivity extends AppCompatActivity {
         TemplatesService templateService = templateApi.createTemplateService();
         Call<List<Template>> call = templateService.fetchTemplates();
         call.enqueue(new Callback<List<Template>>() {
+
             @Override
             public void onResponse(Call<List<Template>> call, Response<List<Template>> response) {
                 List<Template> templates = response.body();
                 templatesAdapter.setData(templates);
-
             }
 
             @Override
