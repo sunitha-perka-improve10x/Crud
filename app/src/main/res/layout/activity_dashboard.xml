@@ -39,4 +39,19 @@
         android:text="Templates"
         android:textColor="#1E1A1A"
         android:textSize="16sp" />
+
+    <ImageButton
+        android:id="@+id/series_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Series"
+        android:textColor="#171616"
+        android:textSize="16sp" />
 </LinearLayout>

@@ -16,10 +16,13 @@
         android:theme="@style/Theme.Crud"
         tools:targetApi="31">
         <activity
+            android:name=".SeriesItemsActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddTemplateActivity"
             android:exported="false" />
         <activity
-            android:name=".TemplatesActivity"
+            android:name=".templates.TemplatesActivity"
             android:exported="false" />
         <activity
             android:name=".messages.AddMessageActivity"

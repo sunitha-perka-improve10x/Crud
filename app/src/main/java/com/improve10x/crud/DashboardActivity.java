@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.ImageButton;
 
 import com.improve10x.crud.messages.MessagesActivity;
+import com.improve10x.crud.templates.TemplatesActivity;
 
 public class DashboardActivity extends AppCompatActivity {
 
@@ -17,6 +18,16 @@ public class DashboardActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Dashboard");
         handleMessageBtn();
         handleTemplateBtn();
+        handleSeriesItemBtn();
+    }
+
+    private void handleSeriesItemBtn() {
+        ImageButton imageButton = findViewById(R.id.series_btn);
+        imageButton.setOnClickListener(view -> {
+            Intent intent = new Intent(this, SeriesItemsActivity.class);
+            startActivity(intent);
+        });
+
     }
 
     private void handleMessageBtn() {
@@ -33,5 +44,7 @@ public class DashboardActivity extends AppCompatActivity {
             Intent intent = new Intent(this, TemplatesActivity.class);
             startActivity(intent);
         });
+
+
     }
 }

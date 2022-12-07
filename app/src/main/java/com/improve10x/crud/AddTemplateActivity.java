@@ -7,6 +7,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.improve10x.crud.templates.Template;
+import com.improve10x.crud.templates.TemplatesApi;
+import com.improve10x.crud.templates.TemplatesService;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
