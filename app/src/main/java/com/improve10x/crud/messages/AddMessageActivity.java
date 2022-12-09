@@ -8,6 +8,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.improve10x.crud.R;
+import com.improve10x.crud.api.CrudApi;
+import com.improve10x.crud.api.CrudService;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -15,12 +17,24 @@ import retrofit2.Response;
 
 public class AddMessageActivity extends AppCompatActivity {
 
+    private CrudService crudService;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_messages);
         getSupportActionBar().setTitle("Add Message");
         handleAdd();
+        setupApiService();
+    }
+
+    private void setupApiService() {
+        CrudApi crudApi = new CrudApi();
+        crudService = crudApi.createCrudService();
+    }
+
+    private void showToast(String message){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     private void handleAdd() {
@@ -41,20 +55,18 @@ public class AddMessageActivity extends AppCompatActivity {
         messagesList.name = name;
         messagesList.phoneNumber = phoneNumber;
         messagesList.messageText = message;
-        MessagesApi messagesApi = new MessagesApi();
-        MessagesService service = messagesApi.createMessagesService();
-        Call<Message> call = service.createMessage(messagesList);
+
+        Call<Message> call = crudService.createMessage(messagesList);
         call.enqueue(new Callback<Message>() {
             @Override
             public void onResponse(Call<Message> call, Response<Message> response) {
-                Toast.makeText(AddMessageActivity.this, "Successfully Added Message", Toast.LENGTH_SHORT).show();
+                showToast("Successfully Added Message");
                 finish();
             }
 
             @Override
             public void onFailure(Call<Message> call, Throwable t) {
-                Toast.makeText(AddMessageActivity.this, "Failure", Toast.LENGTH_SHORT).show();
-
+                showToast("Failure");
             }
         });
     }

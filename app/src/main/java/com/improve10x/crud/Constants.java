@@ -5,6 +5,4 @@ public class Constants {
     public static final String MESSAGE_END_POINT = "sunithaMessagesHistory";
     public static final String TEMPLATE_END_POINT = "sunithaTemplates";
     public static final String SERIESITEMS_END_POINT = "sunithaSeriesItems";
-
-
 }

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.ImageButton;
 
 import com.improve10x.crud.messages.MessagesActivity;
+import com.improve10x.crud.series.SeriesItemsActivity;
 import com.improve10x.crud.templates.TemplatesActivity;
 
 public class DashboardActivity extends AppCompatActivity {

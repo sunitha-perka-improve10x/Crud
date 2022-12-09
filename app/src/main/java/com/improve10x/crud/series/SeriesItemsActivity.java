@@ -1,4 +1,4 @@
-package com.improve10x.crud;
+package com.improve10x.crud.series;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -7,8 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.improve10x.crud.templates.Template;
-import com.improve10x.crud.templates.TemplatesAdapter;
+import com.improve10x.crud.R;
 
 import java.util.ArrayList;
 import java.util.List;
