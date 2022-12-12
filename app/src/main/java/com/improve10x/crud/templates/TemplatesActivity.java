@@ -10,6 +10,7 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.improve10x.crud.BaseActivity;
 import com.improve10x.crud.R;
 import com.improve10x.crud.api.CrudApi;
 import com.improve10x.crud.api.CrudService;
@@ -21,7 +22,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class TemplatesActivity extends AppCompatActivity {
+public class TemplatesActivity extends BaseActivity {
     private  CrudService crudService;
      private ArrayList<Template> templates;
      private RecyclerView templatesRv;
@@ -37,14 +38,6 @@ public class TemplatesActivity extends AppCompatActivity {
         handleAdd();
         setupData();
         setupTemplatesRv();
-    }
-
-    private void log(String message) {
-        Log.i("TemplateActivity",message);
-    }
-
-    private  void showToast(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     private void setupApiService() {
