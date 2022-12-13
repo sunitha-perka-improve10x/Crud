@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="#0E9AAC"
     android:orientation="vertical"
     android:padding="8dp"
     tools:context=".messages.AddMessageActivity">
@@ -69,4 +70,11 @@
         android:backgroundTint="#03A9F4"
         android:text="Add"
         android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/edit_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00BCD4"
+        android:text="Edit" />
 </LinearLayout>

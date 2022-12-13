@@ -1,16 +1,14 @@
 package com.improve10x.crud.messages;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
-import android.widget.Toast;
 
-import com.improve10x.crud.BaseActivity;
+import com.improve10x.crud.Constants;
+import com.improve10x.crud.base.BaseActivity;
 import com.improve10x.crud.R;
 import com.improve10x.crud.api.CrudApi;
 import com.improve10x.crud.api.CrudService;
@@ -48,7 +46,9 @@ public class MessagesActivity extends BaseActivity {
         messagesAdapter.setOnItemActionListener(new OnItemActionListener() {
             @Override
             public void onItemClicked(Message messages) {
-                showToast("OnItem Clicked");
+                Intent intent = new Intent(MessagesActivity.this,AddMessageActivity.class);
+                intent.putExtra(Constants.KEY_MESSAGE,messages);
+                startActivity(intent);
             }
 
             @Override
