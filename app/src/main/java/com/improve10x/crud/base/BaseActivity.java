@@ -14,3 +14,4 @@ public class BaseActivity extends AppCompatActivity {
         Log.i(this.getLocalClassName(),message);
     }
 }
+

@@ -10,19 +10,23 @@ import android.widget.Toast;
 import com.improve10x.crud.R;
 import com.improve10x.crud.api.CrudApi;
 import com.improve10x.crud.api.CrudService;
+import com.improve10x.crud.base.BaseActivity;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AddTemplateActivity extends AppCompatActivity {
+public class AddTemplateActivity extends BaseActivity {
     private CrudService crudService;
+    private Button addBtn;
+    private EditText messageTxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_edit_template);
         getSupportActionBar().setTitle("Add Template");
+        setupViews();
         setupApiService();
         handleAdd();
     }
@@ -32,30 +36,33 @@ public class AddTemplateActivity extends AppCompatActivity {
         crudService = crudApi.createCrudService();
     }
 
-    private  void showToast(String message){
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    private void setupViews() {
+         addBtn = findViewById(R.id.add_btn);
+        messageTxt = findViewById(R.id.message_txt);
+
     }
 
     private void handleAdd() {
-        Button addBtn = findViewById(R.id.add_btn);
         addBtn.setOnClickListener(view -> {
-            EditText messageTxt = findViewById(R.id.message_txt);
             String message = messageTxt.getText().toString();
-            createTemplate(message);
+            Template template = createTemplate(message);
+            saveMessage(template);
         });
     }
 
-    private void createTemplate(String message) {
+    private Template createTemplate(String message) {
         Template template = new Template();
         template.messageText = message;
-        CrudApi crudApi = new CrudApi();
-        CrudService crudService = crudApi.createCrudService();
+        return template;
+    }
+
+    private  void saveMessage(Template template) {
         Call<Template> call = crudService.createTemplate(template);
         call.enqueue(new Callback<Template>() {
             @Override
             public void onResponse(Call<Template> call, Response<Template> response) {
                 showToast("SuccessfullyAdded message");
-                    finish();
+                finish();
             }
 
             @Override
