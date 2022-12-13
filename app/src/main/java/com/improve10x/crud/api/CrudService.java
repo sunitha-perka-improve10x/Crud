@@ -25,7 +25,7 @@ public interface CrudService {
     Call<Void> deleteMessage(@Path("id")String id);
 
     @PUT(Constants.MESSAGE_END_POINT + "/{id}")
-    Call<Void> updatedMessage(@Path("id")String id , @Body Message messages);
+    Call<Void> updatedMessage(@Path("id")String id, @Body Message messages);
 
     @GET(Constants.TEMPLATE_END_POINT)
     Call<List<Template>> fetchTemplates();
@@ -35,6 +35,9 @@ public interface CrudService {
 
     @DELETE(Constants.TEMPLATE_END_POINT + "/{id}")
     Call<Void>deleteTemplate(@Path("id")String id);
+
+    @PUT(Constants.TEMPLATE_END_POINT + "/{id}")
+    Call<Void> updatedTemplate(@Path("id")String id, @Body Template templates);
 
 
 

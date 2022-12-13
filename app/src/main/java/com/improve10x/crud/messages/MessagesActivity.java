@@ -46,8 +46,8 @@ public class MessagesActivity extends BaseActivity {
         messagesAdapter.setOnItemActionListener(new OnItemActionListener() {
             @Override
             public void onItemClicked(Message messages) {
-                Intent intent = new Intent(MessagesActivity.this,AddMessageActivity.class);
-                intent.putExtra(Constants.KEY_MESSAGE,messages);
+                Intent intent = new Intent(MessagesActivity.this, AddMessageActivity.class);
+                intent.putExtra(Constants.KEY_MESSAGE, messages);
                 startActivity(intent);
             }
 
@@ -121,7 +121,6 @@ public class MessagesActivity extends BaseActivity {
     private void setupMessagesRv() {
         messagesRv = findViewById(R.id.messages_rv);
         messagesRv.setLayoutManager(new LinearLayoutManager(this));
-
     }
 
     private void setupData() {
@@ -134,6 +133,7 @@ public class MessagesActivity extends BaseActivity {
 
         Message messages1 = new Message();
         messages1.name = "Ramesh";
+
         messages1.phoneNumber = "+91 7893256197";
         messages1.messageText = "Welcome to improve 10X";
         messages.add(message);*/

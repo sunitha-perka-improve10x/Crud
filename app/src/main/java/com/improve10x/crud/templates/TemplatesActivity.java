@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
+import com.improve10x.crud.Constants;
 import com.improve10x.crud.base.BaseActivity;
 import com.improve10x.crud.R;
 import com.improve10x.crud.api.CrudApi;
@@ -24,6 +25,7 @@ public class TemplatesActivity extends BaseActivity {
      private ArrayList<Template> templates;
      private RecyclerView templatesRv;
      private TemplatesAdapter templatesAdapter;
+     private   Button addBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,32 @@ public class TemplatesActivity extends BaseActivity {
         handleAdd();
         setupData();
         setupTemplatesRv();
+        setupTemplatesAdapter();
+    }
+
+    private void setupTemplatesAdapter() {
+        templatesAdapter = new TemplatesAdapter();
+        templatesAdapter.setData(templates);
+        templatesAdapter.setOnItemActionListener(new OnItemActionListener() {
+            @Override
+            public void OnItemClicked(Template template) {
+                Intent intent = new Intent(TemplatesActivity.this,AddTemplateActivity.class);
+                intent.putExtra(Constants.KEY_TEMPLATE,templates);
+                startActivity(intent);
+            }
+
+            @Override
+            public void OnItemDelete(Template template) {
+                showToast("On Item Delete");
+                deleteTemplate(template);
+            }
+
+            @Override
+            public void OnItemEdit(Template template) {
+                showToast("On Item Edit");
+            }
+        });
+        templatesRv.setAdapter(templatesAdapter);
     }
 
     private void setupApiService() {
@@ -60,7 +88,7 @@ public class TemplatesActivity extends BaseActivity {
     }
 
     private void handleAdd() {
-        Button addBtn = findViewById(R.id.add_btn);
+        addBtn = findViewById(R.id.add_btn);
         addBtn.setOnClickListener(view -> {
             Intent intent = new Intent(this, AddTemplateActivity.class);
             startActivity(intent);
@@ -95,26 +123,6 @@ public class TemplatesActivity extends BaseActivity {
     private void setupTemplatesRv() {
         templatesRv = findViewById(R.id.message_rv);
         templatesRv.setLayoutManager(new LinearLayoutManager(this));
-        templatesAdapter = new TemplatesAdapter();
-        templatesAdapter.setData(templates);
-        templatesAdapter.setOnItemActionListener(new OnItemActionListener() {
-            @Override
-            public void OnItemClicked(Template template) {
-                showToast("On Item Clicked");
-            }
-
-            @Override
-            public void OnItemDelete(Template template) {
-                showToast("On Item Delete");
-                deleteTemplate(template);
-            }
-
-            @Override
-            public void OnItemEdit(Template template) {
-                showToast("On Item Edit");
-            }
-        });
-        templatesRv.setAdapter(templatesAdapter);
     }
 
     private void setupData() {

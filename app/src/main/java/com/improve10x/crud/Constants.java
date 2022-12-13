@@ -7,4 +7,5 @@ public class Constants {
     public static final String SERIESITEMS_END_POINT = "sunithaSeriesItems";
 
     public  static final String KEY_MESSAGE = "messages";
+    public  static final String KEY_TEMPLATE = "templates";
 }
