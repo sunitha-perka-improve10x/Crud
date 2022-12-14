@@ -2,6 +2,7 @@ package com.improve10x.crud.api;
 
 import com.improve10x.crud.Constants;
 import com.improve10x.crud.messages.Message;
+import com.improve10x.crud.quotes.Quote;
 import com.improve10x.crud.templates.Template;
 
 import java.util.List;
@@ -38,6 +39,19 @@ public interface CrudService {
 
     @PUT(Constants.TEMPLATE_END_POINT + "/{id}")
     Call<Void> updatedTemplate(@Path("id")String id, @Body Template template);
+
+    @GET(Constants.QUOTE_END_POINT)
+    Call<List<Quote>> fetchQuotes();
+
+    @POST(Constants.QUOTE_END_POINT)
+    Call<Quote> createQuote(@Body Quote quote);
+
+    @DELETE(Constants.QUOTE_END_POINT + "/{id}")
+    Call<Void> deleteQuote(@Path("id")String id,@Body Quote quote);
+
+    @PUT(Constants.QUOTE_END_POINT + "/{id}")
+    Call<Void> updatedQuote(@Path("id")String id, @Body Quote quote);
+
 
 
 
