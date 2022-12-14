@@ -8,50 +8,77 @@
     android:padding="12dp"
     tools:context=".DashboardActivity">
 
-    <ImageButton
-        android:id="@+id/image_btn"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="false"
-        android:src="@drawable/ic_launcher_background" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:gravity="center"
-        android:text="Messages"
-        android:textColor="#1B1212"
-        android:textSize="16sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-    <ImageButton
-        android:id="@+id/template_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="false"
-        app:srcCompat="@drawable/ic_launcher_background" />
+            <ImageButton
+                android:id="@+id/image_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="false"
+                android:src="@drawable/ic_launcher_background" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Templates"
-        android:textColor="#1E1A1A"
-        android:textSize="16sp" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:gravity="center"
+                android:text="Messages"
+                android:textColor="#1B1212"
+                android:textSize="16sp" />
 
-    <ImageButton
-        android:id="@+id/series_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_launcher_background" />
+            <ImageButton
+                android:id="@+id/template_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="false"
+                app:srcCompat="@drawable/ic_launcher_background" />
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Series"
-        android:textColor="#171616"
-        android:textSize="16sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Templates"
+                android:textColor="#1E1A1A"
+                android:textSize="16sp" />
+
+            <ImageButton
+                android:id="@+id/series_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_launcher_background" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Series"
+                android:textColor="#171616"
+                android:textSize="16sp" />
+
+            <ImageButton
+                android:id="@+id/quotes_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_launcher_background" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Quotes"
+                android:textColor="#171313" />
+
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>
