@@ -47,7 +47,7 @@ public class TemplatesActivity extends BaseActivity {
             @Override
             public void OnItemClicked(Template template) {
                 Intent intent = new Intent(TemplatesActivity.this,AddTemplateActivity.class);
-                intent.putExtra(Constants.KEY_TEMPLATE,templates);
+                intent.putExtra(Constants.KEY_TEMPLATE,template);
                 startActivity(intent);
             }
 

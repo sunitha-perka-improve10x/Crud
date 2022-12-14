@@ -37,7 +37,7 @@ public interface CrudService {
     Call<Void>deleteTemplate(@Path("id")String id);
 
     @PUT(Constants.TEMPLATE_END_POINT + "/{id}")
-    Call<Void> updatedTemplate(@Path("id")String id, @Body Template templates);
+    Call<Void> updatedTemplate(@Path("id")String id, @Body Template template);
 
 
 
