@@ -121,7 +121,7 @@ public class TemplatesActivity extends BaseActivity {
     }
 
     private void setupTemplatesRv() {
-        templatesRv = findViewById(R.id.message_rv);
+        templatesRv = findViewById(R.id.quote_rv);
         templatesRv.setLayoutManager(new LinearLayoutManager(this));
     }
 

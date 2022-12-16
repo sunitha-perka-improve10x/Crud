@@ -11,6 +11,8 @@ public class Quote implements Serializable {
     String quoteText;
     @SerializedName("authorName")
     String authorName;
+    @SerializedName("category")
+    String category;
     @SerializedName("imageUrl")
     String imgUrl;
 }

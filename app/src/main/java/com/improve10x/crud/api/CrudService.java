@@ -47,12 +47,9 @@ public interface CrudService {
     Call<Quote> createQuote(@Body Quote quote);
 
     @DELETE(Constants.QUOTE_END_POINT + "/{id}")
-    Call<Void> deleteQuote(@Path("id")String id,@Body Quote quote);
+    Call<Void> deleteQuote(@Path("id") String id);
 
     @PUT(Constants.QUOTE_END_POINT + "/{id}")
     Call<Void> updatedQuote(@Path("id")String id, @Body Quote quote);
-
-
-
 
 }

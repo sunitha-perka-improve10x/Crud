@@ -15,7 +15,7 @@ public class SeriesItemViewHolder extends RecyclerView.ViewHolder {
 
     public SeriesItemViewHolder(@NonNull View itemView) {
         super(itemView);
-        imageImg = itemView.findViewById(R.id.image_img);
+        imageImg = itemView.findViewById(R.id.imageurl_txt);
         titleTxt = itemView.findViewById(R.id.title_txt);
     }
 }
