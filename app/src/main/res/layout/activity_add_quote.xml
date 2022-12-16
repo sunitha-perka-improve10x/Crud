@@ -7,7 +7,7 @@
     android:backgroundTint="#00BCD4"
     android:orientation="vertical"
     android:padding="8dp"
-    tools:context=".quotes.AddEditQuoteActivity">
+    tools:context=".quotes.BaseAddEditQuoteActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -80,13 +80,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#00BCD4"
-        android:text="Add" />
+        android:text="Add"
+        android:visibility="gone" />
 
     <Button
         android:id="@+id/edit_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#00BCD4"
-        android:text="Edit" />
+        android:text="Edit"
+        android:visibility="gone" />
 
 </LinearLayout>
