@@ -6,6 +6,8 @@ import android.widget.Button;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.improve10x.crud.Constants;
 import com.improve10x.crud.R;
 import com.improve10x.crud.api.CrudApi;
 import com.improve10x.crud.api.CrudService;
@@ -40,7 +42,7 @@ public class QuotesActivity extends BaseActivity {
     private void handleAdd() {
         Button addBtn = findViewById(R.id.add_btn);
         addBtn.setOnClickListener(view -> {
-            Intent intent = new Intent(this,AddQuoteActivity.class);
+            Intent intent = new Intent(this, AddEditQuoteActivity.class);
             startActivity(intent);
         });
     }
@@ -84,7 +86,10 @@ public class QuotesActivity extends BaseActivity {
         quotesAdapter.setOnItemActionListener(new OnItemActionListener() {
             @Override
             public void onItemClicked(Quote quote) {
-                showToast("On itemClicked");
+                Intent intent = new Intent(QuotesActivity.this, AddEditQuoteActivity.class);
+                intent.putExtra(Constants.KEY_QUOTE,quote);
+                startActivity(intent);
+                //showToast("On itemClicked");
             }
 
             @Override
@@ -105,7 +110,6 @@ public class QuotesActivity extends BaseActivity {
                     @Override
                     public void onFailure(Call<Void> call, Throwable t) {
                         showToast("failed");
-
                     }
                 });
             }
@@ -119,12 +123,12 @@ public class QuotesActivity extends BaseActivity {
     }
     private  void setData() {
         quotes = new ArrayList<>();
-        Quote quote =  new Quote();
+       /* Quote quote =  new Quote();
         quote.authorName = "sunitha";
         quote.quoteText = "Hello";
         quote.category = "djljdd";
         quote.imgUrl = "https://www.kochiesbusinessbuilders.com.au/wp-content/uploads/2022/02/motivational-quote.jpg";
-        quotes.add(quote);
+        quotes.add(quote);*/
     }
 }
 
