@@ -46,7 +46,7 @@ public class MessagesActivity extends BaseActivity {
         messagesAdapter.setOnItemActionListener(new OnItemActionListener() {
             @Override
             public void onItemClicked(Message messages) {
-                Intent intent = new Intent(MessagesActivity.this, AddMessageActivity.class);
+                Intent intent = new Intent(MessagesActivity.this, BaseAddEditMessageActivity.class);
                 intent.putExtra(Constants.KEY_MESSAGE, messages);
                 startActivity(intent);
             }
@@ -90,7 +90,7 @@ public class MessagesActivity extends BaseActivity {
     private void handleAdd() {
         Button addBtn = findViewById(R.id.add_btn);
         addBtn.setOnClickListener(view -> {
-            Intent intent = new Intent(this, AddMessageActivity.class);
+            Intent intent = new Intent(this, BaseAddEditMessageActivity.class);
             startActivity(intent);
         });
     }

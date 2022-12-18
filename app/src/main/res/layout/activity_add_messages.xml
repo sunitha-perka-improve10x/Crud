@@ -7,7 +7,7 @@
     android:backgroundTint="#0E9AAC"
     android:orientation="vertical"
     android:padding="8dp"
-    tools:context=".messages.AddMessageActivity">
+    tools:context=".messages.BaseAddEditMessageActivity">
 
     <TextView
         android:layout_width="match_parent"
